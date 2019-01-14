@@ -18,16 +18,22 @@ namespace array
         }
 
         Graphics g;
-        Font myFont = new Font("Arial", 12, FontStyle.Regular);
+        Font myFont = new Font("Arial", 8, FontStyle.Regular);
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
+           
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
             g = CreateGraphics();
-            for (int x = 0; x < 3; x++)
+            g.Clear(Color.FromName("Control"));
+            for (int x = 0; x < numericUpDown1.Value; x++)
             {
-                for (int y = 0; y < 3; y++)
+                for (int y = 0; y < numericUpDown1.Value; y++)
                 {
-                    g.DrawRectangle(Pens.Black, new Rectangle(x * 64, y * 64, 64, 64));
-                    g.DrawString($"{x},{y}", myFont, Brushes.Red, new Point(x * 64, y * 64));
+                    g.DrawRectangle(Pens.Black, new Rectangle(x * 32, y * 32, 32, 32));
+                    g.DrawString($"{x},{y}", myFont, Brushes.Red, new Point(x * 32, y * 32));
                 }
             }
         }
